@@ -121,17 +121,20 @@
     }
 
     .input {
-      width: 50%;
-      height: max-content;
+      width: 100%;
+      height: 100%;
       border: none;
       outline: none;
       caret-color: rgb(255, 81, 0);
       background-color: rgb(255, 255, 255);
       border-radius: 30px;
-      padding: 1%;
+      padding: 3%;
+      margin: 3%;
+      margin-right: 20%;
+      margin-left: -20%;
       letter-spacing: 0.8px;
       color: rgb(19, 19, 19);
-      font-size: 13.4px;
+      font-size: large;
 
     }
 
@@ -371,14 +374,16 @@
         </ul>
         <!-- The button to change the theme of the page -->
         <label class="switch">
-          <span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <span class="sun">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <g fill="#ffd43b">
                 <circle r="5" cy="12" cx="12"></circle>
                 <path
                   d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z">
                 </path>
               </g>
-            </svg></span>
+            </svg>
+          </span>
           <span class="moon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
               <path
                 d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z">
@@ -397,13 +402,16 @@
     <!-- Search bar -->
     <div class="InputContainer">
       <form action="/recommend_books" method="post">
-        <input name="user_input" type="text" class="form-control"><br>
-        <input type="submit" class="btn btn-lg btn-warning">
+       
+        <input name="user_input" type="text" class=" input"><br>
+        <input type="submit" id="submitButton" style="display: none;">
+      
       </form>
+      
 
       <!-- Search bar -->
       <!-- Explore bar -->
-      <div><a style="--clr: #7808d0" class="button1212" href="#">
+      <div><a style="--clr: #7808d0" class="button1212" href="#" id="styledButton">
           <span class="button__icon-wrapper1212">
             <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
               <path fill="currentColor"
@@ -436,8 +444,8 @@
       {% endif %}
 
 
-      <!-- Explore bar -->
     </div>
+    <!-- Explore bar -->
     <div class="col-md-12">
       <h1 class="text-white Top-50-books">Books You Definitely like</h1>
     </div>
@@ -479,6 +487,17 @@
         }
       });
     });
+    // explore function
+    document.addEventListener('DOMContentLoaded', (event) => {
+  const styledButton = document.getElementById('styledButton');
+  const submitButton = document.getElementById('submitButton');
+
+  styledButton.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent the default anchor behavior
+    submitButton.click(); // Simulate a click on the submit button
+  });
+});
+
   </script>
 </body>
 
